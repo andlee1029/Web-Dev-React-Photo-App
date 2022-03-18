@@ -2,6 +2,8 @@ import React from 'react';
 import LikeButton from './LikeButton';
 import BookmarkButton from './BookmarkButton';
 import {getHeaders} from './utils';
+import Comments from './Comments';
+import AddComment from './Commenting';
 
 class Post extends React.Component {
 
@@ -56,10 +58,24 @@ class Post extends React.Component {
                           postId={post.id}
                           bookmarkId={post.current_user_bookmark_id}
                           requeryPost={this.requeryPost} />
-
-                        Additional data / controls go here...
                     </div>
-                    <p>{ post.caption }</p>
+                    <p><strong> { post.likes.length } like{post.likes.length !== 1 ? 's' : ''}</strong></p>
+                    <div>
+                        <p>
+                            <strong> { post.user.username }</strong> 
+                            { post.caption }.. <button className="link">more</button>
+                        </p>
+                    </div>
+                    <div>{ post.display_time }</div>
+                    <div className="comments">
+                        <Comments 
+                            postId={post.id}
+                            comments={post.comments}
+                            requeryPost={this.requeryPost}/>
+                        <AddComment
+                            postId={post.id}
+                            requeryPost={this.requeryPost} />
+                    </div>
                 </div>
             </section>
         );

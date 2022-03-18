@@ -204,7 +204,7 @@ main {
 }
 
 .suggestions section {
-    display: grid;
+    display: inline-flex;
     grid-template-columns: 35px 2fr 1fr;
     align-items: center;
     width: 25vw;
@@ -236,7 +236,7 @@ main {
     border: solid 1px #dbdbdb;
     border-radius: 15px;
 }
-aside header > div {
+aside header{
     display: flex;
     align-items: center;
     width: 25vw;

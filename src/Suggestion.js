@@ -12,7 +12,6 @@ class Suggestion extends React.Component{
       <div>
         <img src={suggestion.thumb_url}/>
         <p>{suggestion.username}</p>
-        <p>Suggested For You</p>
         <FollowButton user_id={suggestion.id}/>
       </div>
 

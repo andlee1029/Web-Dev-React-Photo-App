@@ -1,6 +1,7 @@
 import React from 'react';
 import LikeButton from './LikeButton';
 import BookmarkButton from './BookmarkButton';
+import AddComment from './AddComment'
 import {getHeaders} from './utils';
 
 class Post extends React.Component {
@@ -28,6 +29,12 @@ class Post extends React.Component {
 
     render () {
         const post = this.state.post;
+        const comments = this.state.post.comments;
+        const first = comments.length > 0 ? comments[0].text : "";
+        const firstuser = comments.length >0 ? comments[0].user.username : "";
+        const more = comments.length >1 ? ("View all " + comments.length + " comments"): "";
+        console.log("comments");
+        console.log(comments)
         if (!post) {
             return (
                 <div></div>
@@ -61,6 +68,12 @@ class Post extends React.Component {
                     </div>
                     <p>{ post.caption }</p>
                 </div>
+                <p><a>{more}</a></p>
+                <h5>{firstuser}</h5>
+                <p>{first}</p>
+                <AddComment
+                  post_id={post.id}
+                  requeryPost={this.requeryPost}/>
             </section>
         );
     }

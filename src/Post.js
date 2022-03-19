@@ -33,8 +33,6 @@ class Post extends React.Component {
         const first = comments.length > 0 ? comments[0].text : "";
         const firstuser = comments.length >0 ? comments[0].user.username : "";
         const more = comments.length >1 ? ("View all " + comments.length + " comments"): "";
-        console.log("comments");
-        console.log(comments)
         if (!post) {
             return (
                 <div></div>
